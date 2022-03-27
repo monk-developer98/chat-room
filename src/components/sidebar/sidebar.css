@@ -1,0 +1,97 @@
+.sidebar {
+  width: 20rem;
+  background-color: #fff;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  border-right: 1px solid rgba(180, 180, 180, 0.219);
+  padding: 1rem;
+  background-color: rgba(128, 128, 128, 0.219);
+}
+.sidebar_right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.sidebar_right svg {
+  font-size: 1.2rem;
+}
+.sidebar_search {
+  display: flex;
+  align-items: center;
+  background-color: rgba(209, 209, 209, 0);
+  border-bottom: 2px solid rgba(128, 128, 128, 0.424);
+  height: 3rem;
+  padding: 1rem;
+}
+
+.search_container {
+  display: flex;
+  align-items: center;
+  border-right: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.102);
+  width: 100%;
+  border-radius: 1.3rem;
+  background-color: #fff;
+  height: 2.3rem;
+}
+.search_container svg{
+    padding-left: .6rem;
+    color: rgba(128, 128, 128, 0.609);
+}
+.search_container input {
+  outline: none;
+  width: 100%;
+  padding-left: 1rem;
+  border: none;
+}
+::-webkit-input-placeholder{
+  color: rgba(133, 133, 133, 0.65);
+}
+
+.sidebar_chats{
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar_chat{
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.212);
+  transition: 30ms all ease;
+}
+.sidebar_chat:hover{
+  background-color: rgba(112, 111, 111, 0.089);
+}
+
+.link{
+  text-decoration: none;
+}
+.link:visited{
+  color: black;
+}
+.user{
+  margin: 0 1.5rem;
+}
+.user span{
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.user p{
+  color: rgba(128, 128, 128, 0.753);
+}
+.sidebar_chat h3{
+  padding-left: 4rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.sidebar_chat .MuiAvatar-circular{
+  width: 35px;
+  height: 35px;
+}
