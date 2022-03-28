@@ -4,12 +4,16 @@ import Sidebar from "./components/sidebar/Sidebar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/login/Login";
 import { useStateValue } from "./components/StateProvider";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "./Firebase";
 
 function App() {
   const [ {user}, dispatch] = useStateValue();
-  
+  const [toggle, setToggle] = useState(false)
+
+  const TOGGLER = (data)=>{
+    setToggle(data)
+  }
   useEffect(()=>{
     auth.onAuthStateChanged(user=>{
       dispatch({
@@ -24,10 +28,10 @@ function App() {
     { !user ? (<Login />) : (
 
       <div className="App">
-      <Sidebar />
+      <Sidebar toggle={toggle}  TOGGLER={TOGGLER}/>
       <Routes>
-        <Route exact path="/" element={<Chat />} />
-        <Route exact path="/room/:roomId" element={<Chat />} />
+        <Route exact path="/" element={<Chat TOGGLER={TOGGLER} />} />
+        <Route exact path="/room/:roomId" element={<Chat TOGGLER={TOGGLER} />} />
       </Routes>
       </div>
       )}

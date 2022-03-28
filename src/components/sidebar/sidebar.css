@@ -1,6 +1,7 @@
 .sidebar {
   width: 20rem;
   background-color: #fff;
+  z-index: 100;
 }
 .head {
   display: flex;
@@ -94,4 +95,22 @@
 .sidebar_chat .MuiAvatar-circular{
   width: 35px;
   height: 35px;
+}
+
+@media only screen and  (max-width: 900px){
+  /* .sidebar{
+    position: relative;
+    left: -100%;
+  } */
+  .sidebar{
+    position: absolute;
+    box-shadow: 2px 0 10px rgba(128, 128, 128, 0.418);
+    height: 100vh;
+    left: -100%;
+    transition: 400ms all ease;
+  }
+  .sidebar_Active{
+    display: block;
+    left: 0%;
+  }
 }

@@ -6,6 +6,8 @@ import {
   MicNoneOutlined,
   Search,
   Send,
+  MenuOutlined,
+  CloseOutlined,
 } from "@mui/icons-material";
 import { Avatar, IconButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
@@ -17,13 +19,17 @@ import 'firebase/compat/firestore';
 import "./chat.css";
 import {useStateValue} from ".././StateProvider"
 
-const Chat = () => {
+const Chat = ({TOGGLER}) => {
   const { roomId } = useParams();
   const [seed, setSeed] = useState("");
   const [ roomName , setRoomName ] = useState("");
   const [ chatmsg , setChatmsg ] = useState([]);
   const [ message , setMessage] = useState('');
   const [{user},dispatch] = useStateValue();
+
+  const toggleClick = ()=>{
+      TOGGLER(true)
+  }
 
   useEffect(()=>{
     if(roomId){
@@ -38,7 +44,7 @@ const Chat = () => {
     }
     setSeed(Math.floor(Math.random() * 5000));
   },[roomId])
-
+  console.log('TOGGLER',TOGGLER);
   const sendMessage = (e) =>{
     e.preventDefault();
     if(message===""){
@@ -55,6 +61,9 @@ const Chat = () => {
   return (
     <div className="chat">
       <div className="chat_header">
+          <IconButton className="TOGGLE" onClick={toggleClick}>
+            <MenuOutlined />
+          </IconButton>
         <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
         <div className="header_info">
           <span>{roomName}</span>

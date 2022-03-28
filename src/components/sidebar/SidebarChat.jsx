@@ -4,7 +4,7 @@ import "./sidebar.css";
 import db from "../../Firebase";
 import { Link } from "react-router-dom";
 
-const SidebarChat = ({ id, name, addnewchat }) => {
+const SidebarChat = ({ id, name, addnewchat ,toggle,TOGGLER }) => {
   const [seed, setSeed] = useState("");
   const [ lastmsg , setLastmsg] = useState("")
 
@@ -23,9 +23,9 @@ const SidebarChat = ({ id, name, addnewchat }) => {
     }
   };
   return !addnewchat ? (
-    <Link className="link" to={`/room/${id}`} >
+    <Link className={"link"} to={`/room/${id}` } >
       <div className="sidebar_chat">
-        <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
+        <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} onClick={()=>TOGGLER(true)} />
         <div className="user">
           <span>{name}</span>
           <p>{lastmsg[0]?.message}</p>

@@ -1,4 +1,4 @@
-import { Chat, DonutLarge, MoreVert, Search } from "@mui/icons-material";
+import { Chat, DonutLarge, MenuOutlined,MoreVert, CloseOutlined, Search } from "@mui/icons-material";
 import { Avatar, IconButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./sidebar.css";
@@ -7,7 +7,7 @@ import SidebarChat from "./SidebarChat";
 import {useStateValue} from ".././StateProvider"
 
 
-const Sidebar = () => {
+const Sidebar = ({toggle,TOGGLER}) => {
   const [{user}, dispatch] = useStateValue()
   const [ rooms , setRooms ] = useState([]);
   useEffect(()=> {
@@ -18,8 +18,9 @@ const Sidebar = () => {
       })))
     })
   },[])
+  console.log('toggle',toggle);
   return (
-    <div className="sidebar">
+    <div className={toggle?"sidebar sidebar_Active":"sidebar"}>
       <div className="head">
         <Avatar src={user.photoURL}  />
         <div className="sidebar_right">
@@ -31,12 +32,12 @@ const Sidebar = () => {
             <Chat />
           </IconButton>
 
-          <IconButton>
-            <MoreVert />
+          <IconButton onClick={()=>TOGGLER(false)}>
+            {toggle?<CloseOutlined />:<MoreVert />}
           </IconButton>
         </div>
       </div>
-      <div className="sidebar_search">
+      <div className= "sidebar_search" >
           <div className="search_container">
               <Search />
               <input type="text" placeholder="Search or Start new Chat" />
